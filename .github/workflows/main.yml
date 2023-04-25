@@ -8,18 +8,15 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-    - name: Set variable
-        run: echo "::set-env name=WORK_SPACE_DIRECTORY::D:\actions-runner\_work\training_with_actions\training_with_actions\deepak_workspace"
-        run: echo "::set-env name=PRODUCTION_DIRECTORY::D:\XAMPP\htdocs\git_action_project"
     - name: Checkout from repo
       uses: actions/checkout@v3
       with:
        path: deepak_workspace
-    - name: copy all files from _work to running server .. ${{ github.workspace }}
+    - name: copy all files from _work to running server .. $RUNNER_WORKSPACE
       shell: cmd
       run: |
-          cd $WORK_SPACE_DIRECTORY
-          xcopy . $PRODUCTION_DIRECTORY /y /e /h
+          cd D:\actions-runner\_work\training_with_actions\training_with_actions\deepak_workspace
+          xcopy . D:\XAMPP\htdocs\git_action_project /y /e /h
 
       
     
