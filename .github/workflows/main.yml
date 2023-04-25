@@ -8,14 +8,11 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-    - name: Print global variables
-      shell: cmd
-      run: env
     - name: Checkout from repo .. ${{ github.event.repository.name }}
       uses: actions/checkout@v3
       with:
        path: deepak_workspace
-    - name: copy all files from _work to running server .. 
+    - name: copy all files from _work to running server .. ${{ github.runner.runner_path }}
       shell: cmd
       run: |
           cd D:\actions-runner\_work\training_with_actions\training_with_actions\deepak_workspace
