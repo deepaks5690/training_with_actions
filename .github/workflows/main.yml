@@ -15,7 +15,7 @@ jobs:
        path: deepak_workspace
     - name: copy all files from _work to running server
       shell: cmd
-      run: 
+      run: |
           cd D:\actions-runner\_work\training_with_actions\training_with_actions\deepak_workspace
           xcopy . D:\XAMPP\htdocs\git_action_project /y /e /h
 
