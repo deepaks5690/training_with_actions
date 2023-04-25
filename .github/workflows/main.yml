@@ -1,4 +1,7 @@
 name: Sample PHP Deployment
+env:
+    workDirectory: "D:\actions-runner\_work\training_with_actions\training_with_actions\deepak_workspace"
+    productionDirectory: "D:\XAMPP\htdocs\git_action_project"
 on:
   push:
     branches: [ "main" ]
@@ -7,9 +10,6 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    env:
-      workDirectory: D:\actions-runner\_work\training_with_actions\training_with_actions\deepak_workspace
-      productionDirectory: D:\XAMPP\htdocs\git_action_project
     steps:
     - name: Checkout from repo ${{ github.event.repository.name }}
       uses: actions/checkout@v3
@@ -18,8 +18,8 @@ jobs:
     - name: copy all files from _work to running server .. 
       shell: cmd
       run: |
-          cd ${{ workDirectory }}
-          xcopy . ${{ productionDirectory }} /y /e /h
+          cd $workDirectory
+          xcopy . $productionDirectory /y /e /h
 
       
     
