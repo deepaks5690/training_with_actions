@@ -9,7 +9,8 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Print global variables
-        run: env
+      shell: cmd
+      run: env
     - name: Checkout from repo .. ${{ github.event.repository.name }}
       uses: actions/checkout@v3
       with:
