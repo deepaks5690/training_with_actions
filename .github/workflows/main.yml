@@ -8,22 +8,12 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-    - name: Checkout from repo
+    - name: Checkout from repo .. ${{ github.event.repository.name }}
       uses: actions/checkout@v3
       with:
        path: deepak_workspace
     - name: copy all files from _work to running server .. 
       shell: cmd
       run: |
-          cd $RUNNER_WORKSPACE
-          xcopy . D:\XAMPP\htdocs\git_action_project /y /e /h
-
-      
-    
-
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test
+          cd D:\actions-runner\_work\training_with_actions\training_with_actions\deepak_workspace
+          xcopy . D:\XAMPP\htdocs\git_action_project /y /e
