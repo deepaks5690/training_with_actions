@@ -7,6 +7,9 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    env:
+      LOCAL_WORKSPACE_PATH: D:\actions-runner\_work\training_with_actions\training_with_actions\deepak_workspace
+      LIVE_WORKSPACE_PATH: D:\XAMPP\htdocs\git_action_project
     steps:
     - name: Checkout from repo .. ${{ github.event.repository.name }}
       uses: actions/checkout@v3
@@ -15,5 +18,5 @@ jobs:
     - name: copy all files from _work to running server .. ${{ github.runner.runner_path }}
       shell: cmd
       run: |
-          cd D:\actions-runner\_work\training_with_actions\training_with_actions\deepak_workspace
-          xcopy . D:\XAMPP\htdocs\git_action_project /y /e
+          cd $LOCAL_WORKSPACE_PATH
+          xcopy . $LIVE_WORKSPACE_PATH /y /e
