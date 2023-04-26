@@ -15,5 +15,5 @@ jobs:
     - name: copy all files from _work to running server .. "${{ github.workspace }}"
       shell: cmd
       run: |
-          cd "${{ github.workspace }}"
+          cd "${{ github.workspace }}"\deepak_workspace
           xcopy . D:\XAMPP\htdocs\git_action_project /y /e
